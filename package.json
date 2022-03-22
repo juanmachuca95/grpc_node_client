@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "gRPC Node Client",
   "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
+    "lint": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -12,9 +16,12 @@
     "url": "git+https://github.com/juanmachuca95/grpc_node_client.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/juanmachuca95/grpc_node_client/issues"
   },
-  "homepage": "https://github.com/juanmachuca95/grpc_node_client#readme"
+  "homepage": "https://github.com/juanmachuca95/grpc_node_client#readme",
+  "devDependencies": {
+    "standard": "^16.0.4"
+  }
 }

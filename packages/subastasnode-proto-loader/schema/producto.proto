@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = "pb";
+
+import "google/protobuf/timestamp.proto";
+import "clientes.proto";
+
+message Producto {
+    string id = 1;
+    string producto = 2;
+    string descripcion = 3;
+    int32 stock = 4;
+    bool activo = 5;
+    float precio_inicial = 6;
+    float precio_aumento = 7;
+    float precio_subasta = 8;
+    google.protobuf.Timestamp created_at = 9;
+    google.protobuf.Timestamp updated_at = 10;
+    Cliente cliente = 11;
+}
+
+message CreateProductoReq {
+    string id = 1;
+    string producto = 2;
+    string descripcion = 3;
+    int32 stock = 4;
+    bool activo = 5;
+    float precio_inicial = 6;
+    float precio_aumento = 7;
+    float precio_subasta = 8;
+    google.protobuf.Timestamp created_at = 9;
+    google.protobuf.Timestamp updated_at = 10;
+    string clientes_id = 11;
+}
+
+
+service ProductoService {
+    rpc Create(CreateProductoReq) returns (Producto){};
+}
