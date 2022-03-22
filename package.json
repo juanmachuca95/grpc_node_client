@@ -1,16 +1,20 @@
 {
   "name": "grpc-nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "gRPC Node Client",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmachuca95/grpc_node_client.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@grpc/grpc-js": "^1.5.9",
-    "@grpc/proto-loader": "^0.6.9"
-  }
+  "bugs": {
+    "url": "https://github.com/juanmachuca95/grpc_node_client/issues"
+  },
+  "homepage": "https://github.com/juanmachuca95/grpc_node_client#readme"
 }
