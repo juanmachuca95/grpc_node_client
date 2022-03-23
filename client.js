@@ -1,6 +1,6 @@
 const grpc = require("@grpc/grpc-js");
 var protoLoader = require("@grpc/proto-loader");
-const PROTO_PATH = "./protos/product.proto";
+const PROTO_PATH = "./protos/subastas.proto";
 
 const options = {
   keepCase: true,
@@ -8,25 +8,34 @@ const options = {
   enums: String,
   defaults: true,
   oneofs: true,
+  array: true,
 };
 
 var packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
 
-const ProductService = grpc.loadPackageDefinition(packageDefinition).ProductService;
+const SubastaService = grpc.loadPackageDefinition(packageDefinition).SubastaService;
+const ClienteService = grpc.loadPackageDefinition(packageDefinition).ClienteService;
 
-const client = new ProductService(
+const clientSubasta = new SubastaService(
     "localhost:50051",
     grpc.credentials.createInsecure()
 );
 
-// add a news
-client.create(
-    {
-      id: "1",
-      name: "Body content 3",
-    },
-    (error, product) => {
-      if (error) throw error;
-      console.log("Successfully created a product.", product);
-    }
-  );
+const clientCliente = new ClienteService(
+  "localhost:50051",
+  grpc.credentials.createInsecure()
+);
+
+// add a Producto
+clientCliente.getCliente({
+  id: "1"
+}, (error, cliente) => {
+  if (error) throw error;
+  console.log("Method get cliente.", cliente);
+});
+/* client.create({},
+  (error, product) => {
+    if (error) throw error;
+    console.log("Successfully created a product.", product);
+  }
+); */
