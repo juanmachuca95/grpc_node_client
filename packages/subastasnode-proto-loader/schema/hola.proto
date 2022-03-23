@@ -1,0 +1,11 @@
+syntax="proto3";
+
+message Hola {
+    string name = 1;
+}
+
+message Empty {}
+
+service HolaService {
+    rpc Create(Empty) returns (Hola){}
+}

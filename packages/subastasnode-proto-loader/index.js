@@ -1,38 +1,23 @@
 'use strict'
 
-const path = require('path')
-const protoLoader = require('@grpc/proto-loader')
 const grpc = require('@grpc/grpc-js')
+const protoLoader = require('@grpc/proto-loader')
+const PROTO_PATH = './schema/hola.proto'
 
-const RPC_PATH = path.join(__dirname, "schema")
 const options = {
   keepCase: true,
   longs: String,
   enums: String,
   defaults: true,
-  arrays: true,
+  oneofs: true
 }
 
-const protoProducto = protoLoader.loadSync(
-  path.join(__dirname, 'schema', 'producto.proto'),
-  options
-)
-const protoCliente = protoLoader.loadSync(
-  path.join(__dirname, 'schema', 'clientes.proto'),
-  options
-)
-const protoSubasta = protoLoader.loadSync(
-  path.join(__dirname, 'schema', 'subastas.proto'),
-  options
-)
+const packageDefinition = protoLoader.loadSync(PROTO_PATH, options)
 
-const ProductoService = grpc.loadPackageDefinition(protoProducto)
-const ClienteService = grpc.loadPackageDefinition(protoCliente)
-const SubastaService = grpc.loadPackageDefinition(protoSubasta)
+const HolaService = grpc.loadPackageDefinition(packageDefinition).HolaService
 
+const client = new HolaService(
+  'localhost:50051',
+  grpc.ServerCredentials.createInsecure())
 
-module.exports = {
-  ProductoService,
-  ClienteService,
-  SubastaService
-}
+console.log(client)

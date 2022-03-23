@@ -2,7 +2,6 @@
   "name": "@subastasnode/proto-loader",
   "version": "1.0.0",
   "description": "gRPC Protocol Loader ",
-  "private": "true",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +15,5 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.5.9",
     "@grpc/proto-loader": "^0.6.9"
-  },
-  "devDependencies": {}
+  }
 }
