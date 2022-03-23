@@ -8,7 +8,10 @@
   ],
   "scripts": {
     "lint": "standard --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,10 @@
   "homepage": "https://github.com/juanmachuca95/grpc_node_client#readme",
   "devDependencies": {
     "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
